@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhe Conosco</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+        html, body {
+            min-height: 100%;
+        }
+        body, div, form, input, select, textarea {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: #000000;
+        line-height: 22px;
+        }
+        h1 {
+        position: absolute;
+        margin: 0;
+        line-height: 40px;
+        font-size: 40px;
+        color: #000000;
+        z-index: 2;
+        line-height: 83px;
+        } 
+        .testbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+        padding: 20px;
+        }
+        form {
+        width: 100%;
+        padding: 20px;
+        border-radius: 6px;
+        background: #7D7D7D;
+        box-shadow: 0 0 8px  #FF6C00; 
+        }
+        .banner {
+        position: relative;
+        height: 300px;
+        background-image: url("/uploads/media/default/0001/02/095995dadd0a1a9d5d83e6a467edf9ef7f35c114.jpeg");  
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        }
+        .banner::after {
+        content: "";
+        background-color: rgba(0, 0, 0, 0.2); 
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        }
+        input, select, textarea {
+        margin-bottom: 10px;
+        border: 1px solid #dfdddd;
+        border-radius: 3px;
+        }
+        input {
+        width: calc(100% - 10px);
+        padding: 5px;
+        }
+        input[type="date"] {
+        padding: 4px 5px;
+        }
+        textarea {
+        width: calc(100% - 12px);
+        padding: 5px;
+        }
+        .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+        color: #cc7a00;
+        }
+        .item input:hover, .item select:hover, .item textarea:hover {
+        border: 1px solid transparent;
+        box-shadow: 0 0 3px 0 #cc7a00;
+        color: #cc7a00;
+        }
+        .item {
+        position: relative;
+        margin: 10px 0;
+        }
+        .item span {
+        color: red;
+        }
+        input[type="date"]::-webkit-inner-spin-button {
+        display: none;
+        }
+        .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        font-size: 20px;
+        color: #cc7a00;
+        }
+        .item i {
+        right: 1%;
+        top: 30px;
+        z-index: 1;
+        }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+      label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      .question-answer label {
+      display: block;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #7D7D7D;
+      }
+      input[type=radio]:checked + label:before, label.radio:hover:before {
+      border: 2px solid #cc7a00;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid #cc7a00;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #cc7a00;
+      font-size: 16px;
+      color: #7D7D7D;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #ff9800;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .name-item div {
+      width: calc(50% - 20px);
+      }
+      .name-item div input {
+      width:97%;}
+      .name-item div label {
+      display:block;
+      padding-bottom:5px;
+      }
+      }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <div>
+                <label>Nome</label>
+                <input type="text" name="nome" id="nome">
+            </div>
+
+            <div>
+                <label>Sobrenome</label>
+                <input type="text" name="sobrenome" id="Sobrenome">
+            </div>
+        </fieldset>
+
+        <div>
+            <label>Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+
+        <!--<diiv>
+            <label>Características</label>
+            <label>
+                <input type="radio" name="devweb" value=""frontend">Front-end
+            </label>
+            <label>
+                <input type="radio" name="devweb" value=""backend">Back-end
+            </label>
+            <label>
+                <input type="radio" name="devweb" value="Fullstack">Fullstack
+            </label>-->
+        <div>
+            <label>Agendamento</label>
+            <select id="senioridade">
+                <option selected disabled value="">Escolha seu turno de agendamento</option>
+                <option>Manhã</option> 
+                <option>Tarde</option>
+            </select>
+        </div>
+        <form>
+            <label for="Horario-Agendamento">Escolha o Horario para entrevista: </label>
+            <input id="Horario-Agendamento" type="time" name="Horario-Agendamento"> 
+        </form>
+    </div>
+    <div class="cv-div-campo">
+    <div name="R122CEX_LABELCAMPO_2_2_8ENDCAN" id="R122CEX_LABELCAMPO_2_2_8ENDCAN" class="cv-label-campo-dica" title="">
+    <label for="R122CEX_ENDCAN_2_2_8">
+    * Endere&ccedil;o
+    </label>
+    <input type="text" autocomplete="off" name="R122CEX_ENDCAN" id="R122CEX_ENDCAN_2_2_8" class="cv-campo cv-input-text validate[required] cv-campo-obrigatorio" size="50" value=""  mascara="" possuimascaracampo="N" pk="N"  maxlength="40"  field="ENDCAN"/><span id="R122CEX_DICAPREENCHIMENTO_2_2_8" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+    Informe seu Endere&ccedil;o<span class="cv-hint-pointer">&nbsp;</span></span>
+    </div>
+    
+    <div name="R122CEX_LABELCAMPO_2_2_4ENDNUM" id="R122CEX_LABELCAMPO_2_2_4ENDNUM" class="cv-label-campo-dica" title="">
+    <label for="R122CEX_ENDNUM_2_2_4">
+    * N&uacute;mero
+    </label>
+    <input type="text" autocomplete="off" name="R122CEX_ENDNUM" id="R122CEX_ENDNUM_2_2_4" class="cv-campo cv-input-text validate[required] cv-campo-obrigatorio" size="6" value=""  mascara="" possuimascaracampo="N" pk="N"  maxlength="6"  field="ENDNUM"/><span id="R122CEX_DICAPREENCHIMENTO_2_2_4" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+    N&uacute;mero<span class="cv-hint-pointer">&nbsp;</span></span>
+    </div>
+    </div>
+    <div class="cv-div-campo">
+    <div name="R122CEX_LABELCAMPO_2_2_6ENDCPL" id="R122CEX_LABELCAMPO_2_2_6ENDCPL" class="cv-label-campo-dica" title="">
+    <label for="R122CEX_ENDCPL_2_2_6">
+    Complemento
+    </label>
+    <input type="text" autocomplete="off" name="R122CEX_ENDCPL" id="R122CEX_ENDCPL_2_2_6" class="cv-campo cv-input-text " size="50" value="residencia"  mascara="" possuimascaracampo="N" pk="N"  maxlength="25"  field="ENDCPL"/><span id="R122CEX_DICAPREENCHIMENTO_2_2_6" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+    Complemento<span class="cv-hint-pointer">&nbsp;</span></span>
+    </div>
+    
+    </div>
+    <div class="cv-div-campo">
+    <div name="R122CEX_LABELCAMPO_2_2_5NOMBAI" id="R122CEX_LABELCAMPO_2_2_5NOMBAI" class="cv-label-campo-dica" title="">
+    <label for="R122CEX_NOMBAI_2_2_5">
+    * Bairro
+    </label>
+    <input type="text" id="R122CEX_NOMBAI_2_2_5" name="R122CEX_NOMBAI" class="cv-campo cv-input-AutoComplete validate[required] cv-campo-obrigatorio cv-campo-nombai" size="50" value="" campochave="R122CEX_CODBAI_2_2_0"  dependente="N" campodependente="" param="{&quot;qtdcaracteres&quot;:2,&quot;buscaaodigitar&quot;:false,&quot;tempoiniciopesquisa&quot;:1,&quot;valorpadrao&quot;:&quot;0&quot;,&quot;identificador&quot;:&quot;34181D733D3C151C347211383356353D367F38311C39&quot;}"  maxlength="40"  permiteregistroinexistente="true" field="NOMBAI"/>
+    <input type="hidden" id="R122CEX_CODBAI_2_2_0" name="R122CEX_CODBAI" class="cv-campo" value="12" pk="N"  field="CODBAI"/><span id="R122CEX_DICAPREENCHIMENTO_2_2_5" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+    Nome Bairro<span class="cv-hint-pointer">&nbsp;</span></span>
+    </div>
+    
+    </div>
+    <div class="cv-div-campo">
+    <div name="R122CEX_LABELCAMPO_2_2_7CODCEP" id="R122CEX_LABELCAMPO_2_2_7CODCEP" class="cv-label-campo-dica" title="">
+    <label for="R122CEX_CODCEP_2_2_7">
+    * Cep
+    </label>
+    <input type="text" autocomplete="off" name="R122CEX_CODCEP" id="R122CEX_CODCEP_2_2_7" class="cv-campo cv-input-text validate[required] cv-campo-obrigatorio" size="10" value=""  mascara="99.999-999" possuimascaracampo="S" pk="N"  maxlength="10"  field="CODCEP"/><span id="R122CEX_DICAPREENCHIMENTO_2_2_7" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+    Cep<span class="cv-hint-pointer">&nbsp;</span></span>
+    </div>
+    </div>
+    <div class="cv-div-campo">
+    <div name="R122CEX_LABELCAMPO_2_1_2DATNAS" id="R122CEX_LABELCAMPO_2_1_2DATNAS" class="cv-label-campo-dica" title="">
+    <label for="R122CEX_DATNAS_2_1_2">
+    * Data Nascimento
+    </label>
+    <input type="text" autocomplete="off" id="R122CEX_DATNAS_2_1_2"  name="R122CEX_DATNAS" class="cv-campo cv-input-data validate[required] cv-campo-obrigatorio" size="12" value=""  mascara="DD/MM/YYYY" possuimascaracampo="N" pk="N"  maxlength="12"  field="DATNAS"/><span id="R122CEX_DICAPREENCHIMENTO_2_1_2" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+    Informe sua Data de Nascimento<span class="cv-hint-pointer">&nbsp;</span></span>
+    </div>
+    
+    </div>
+    <div class="cv-div-campo">
+    <div name="R122CEX_LABELCAMPO_2_1_6TIPSEX" id="R122CEX_LABELCAMPO_2_1_6TIPSEX" class="cv-label-campo-dica" title="">
+    <label for="R122CEX_TIPSEX_2_1_6">
+    * Sexo
+    </label>
+    <select id="R122CEX_TIPSEX_2_1_6" autocomplete="off" name="R122CEX_TIPSEX" class="cv-campo cv-select validate[required] cv-campo-obrigatorio"  field="TIPSEX" pk="N" campodependente="" dependente="" data-valor-inicial=""> 
+    <option  value="">Selecione uma op&ccedil;&atilde;o</option><option  value="F">Feminino</option><option select="select" value="M">Masculino</option>
+    </select><span id="R122CEX_DICAPREENCHIMENTO_2_1_6" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+    Selecione seu g&ecirc;nero<span class="cv-hint-pointer">&nbsp;</span></span>
+    </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <select class="form-control" name="estado" required>
+                    <option value="" selected="">Selecione o Estado*</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espirito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <select>
+                            <option value="" selected="">Selecione a Cidade*</option>
+                            <option class="Ac" value="Acre">Rio Branco</option> 
+                            <option class="Ac" value="Acre">Cruzeiro do Sul</option>
+                            <option class="Ac" value="Acre">Sena Madureira</option>
+                            <option class="Ac" value="Acre">Taruacá</option>
+                            <option class="Ac" value="Acre">Feijó</option> 
+                            <option class="AL" value="Alagoas">Maceió</option>
+                            <option class="AL" value="Alagoas">Arapiraca</option>
+                            <option class="AL" value="Alagoas">Estrela de Alagoas</option>
+                            <option class="AL" value="Alagoas">Rio Largo</option>
+                            <option class="AL" value="Alagoas">União dos Palmares</option>
+                            <option class="Ap" value="Amapá">Macapá</option>
+                            <option class="Ap" value="Amapá">Santana</option>
+                            <option class="Ap" value="Amapá">Oiapoque</option>
+                            <option class="Ap" value="Amapá">Porto Grande</option>
+                            <option class="Ap" value="Amapá">Vitória do Jari</option>
+                            <option class="AM" value="Amazonas">Manaus</option>
+                            <option class="AM" value="Amazonas">Itacoatira</option>
+                            <option class="AM" value="Amazonas">Manicoré</option>
+                            <option class="AM" value="Amazonas">Humaitá</option>
+                            <option class="AM" value="Amazonas">Autazes</option> 
+                            <option class="BA" value="Bahia">Salvador</option>
+                            <option class="BA" value="Bahia">Feira de Santana</option>
+                            <option class="BA" value="Bahia">Vitória da Conquista</option>
+                            <option class="BA" value="Bahia">Barreiras</option>
+                            <option class="BA" value="Bahia">Porto Seguro</option>
+                            <option class="CE" value="Ceará">Fortaleza</option>
+                            <option class="CE" value="Ceará">Aracati</option>
+                            <option class="CE" value="Ceará">Aracaju</option>
+                            <option class="CE" value="Ceará">Sobral</option>
+                            <option class="CE" value="Ceará">Crato</option>
+                            <option class="DF" value="Distrito Federal">Brasilia</option>
+                            <option class="ES" value="Espirito Santo">Serra</option>
+                            <option class="ES" value="Espirito Santo">Vila Velha</option>
+                            <option class="ES" value="Espirito Santo">Vitória</option>
+                            <option class="ES" value="Espirito Santo">Linhares</option>
+                            <option class="ES" value="Espirito Santo">São Mateus</option>
+                            <option class="GO" value="Goiás">Goiánia</option>
+                            <option class="GO" value="Goiás">Anápolis</option>
+                            <option class="GO" value="Goiás">Rio Verde</option>
+                            <option class="GO" value="Goiás">Água Lindas de Goiás</option>
+                            <option class="GO" value="Goiás">Trindade</option>
+                            <option class="MA" value="Maranhão">Caxias</option>
+                            <option class="MA" value="Maranhão">Imperatriz</option>
+                            <option class="MA" value="Maranhão">Açailândia</option>
+                            <option class="MA" value="Maranhão">Timon</option>
+                            <option class="MA" value="Maranhão">Codó</option>
+                            <option class="MT" value="Mato Grosso">Diamantino</option>
+                            <option class="MT" value="Mato Grosso">Comodoro</option>
+                            <option class="MT" value="Mato Grosso">Vila Rica</option>
+                            <option class="MT" value="Mato Grosso">Campo Novo do Norte</option>
+                            <option class="MT" value="Mato Grosso">Juara</option><option value="MS">Mato Grosso do Sul</option>
+                            <option class="MG" value="Minas Gerais">Belo Horizonte</option>
+                            <option class="MG" value="Minas Gerais">Uberlândia</option>
+                            <option class="MG" value="Minas Gerais">Ipatinga</option>
+                            <option class="MG" value="Minas Gerais">Sete Lagoas</option>
+                            <option class="MG" value="Minas Gerais">Paraguaçu</option>
+                            <option class="PA" value="Pará">Belém</option>
+                            <option class="PA" value="Pará">Santarém</option>
+                            <option class="PA" value="Pará">Marabá</option>
+                            <option class="PA" value="Pará">Castanhal</option>
+                            <option class="PA" value="Pará">Ananindeua</option>
+                            <option class="PB" value="Paraíba">Aparecida</option>
+                            <option class="PB" value="Paraíba">Amparo</option>
+                            <option class="PB" value="Paraíba">Bananeiras</option>
+                            <option class="PB" value="Paraíba">Barra de São Miguel</option>
+                            <option class="PB" value="Paraíba">Barra de Santana</option>
+                            <option class="PR" value="Paraná">Curitiba</option>
+                            <option class="PR" value="Paraná">Londrina</option>
+                            <option class="PR" value="Paraná">Maringa</option>
+                            <option class="PR" value="Paraná">Ponta Grossa</option>
+                            <option class="PR" value="Paraná">São José dos Pinhais</option>
+                            <option class="PE" value="Pernambuco">Recife</option>
+                            <option class="PE" value="Pernambuco">Olinda</option>
+                            <option class="PE" value="Pernambuco">Petrolina</option>
+                            <option class="PE" value="Pernambuco">Petrolina</option>
+                            <option class="PE" value="Pernambuco">Camaragibe</option>
+                            <option class="PI" value="Piauí">Parnaiba</option>
+                            <option class="PI" value="Piauí">Picos</option>
+                            <option class="PI" value="Piauí">Floriano</option>
+                            <option class="PI" value="Piauí">Barras</option>
+                            <option class="PI" value="Piauí">União</option>
+                            <option class="RJ" value="Rio de Janeiro">Angra dos Reis</option>
+                            <option class="RJ" value="Rio de Janeiro">Arraial do Cabo</option>
+                            <option class="RJ" value="Rio de Janeiro">Barra Mansa</option>
+                            <option class="RJ" value="Rio de Janeiro">Bom Jesus do Itabapoana</option>
+                            <option class="RJ" value="Rio de Janeiro">Cabo Frio</option>
+                            <option class="RN" value="Rio Grande do Norte">Natal</option>
+                            <option class="RN" value="Rio Grande do Norte">Parnamirim</option>
+                            <option class="RN" value="Rio Grande do Norte">Natal</option>
+                            <option class="RN" value="Rio Grande do Norte">Ceará Mirim</option>
+                            <option class="RN" value="Rio Grande do Norte">Assu</option>
+                            <option class="RS" value="Rio Grande do Sul">Porto Alegre</option>
+                            <option class="RS" value="Rio Grande do Sul">Caxias do Sul</option>
+                            <option class="RS" value="Rio Grande do Sul">Santa Maria</option>
+                            <option class="RS" value="Rio Grande do Sul">Novo Hamburgo</option>
+                            <option class="RS" value="Rio Grande do Sul">Canoas</option>
+                            <option class="RO" value="Rondônia">Porto Velho</option>
+                            <option class="RO" value="Rondônia">Guajará Mirim</option>
+                            <option class="RO" value="Rondônia">Vilhena</option>
+                            <option class="RO" value="Rondônia">São Francisco do Guaporé</option>
+                            <option class="RO" value="Rondônia">Pimenta Bueno</option>
+                            <option class="RR" value="Roraima">Boa Vista</option>
+                            <option class="RR" value="Roraima">Rorainópolis</option>
+                            <option class="RR" value="Roraima">Alto Alegre</option>
+                            <option class="RR" value="Roraima">Mucajai</option>
+                            <option class="RR" value="Roraima">Pacaraima</option>
+                            <option class="SC" value="Santa Catarina">Alto Bela Vista</option>
+                            <option class="SC" value="Santa Catarina">Água Doce</option>
+                            <option class="SC" value="Santa Catarina">Arvoredo</option>
+                            <option class="SC" value="Santa Catarina">Águas de Chapecó</option>
+                            <option class="SC" value="Santa Catarina">Anchieta</option>
+                            <option class="SP" value="São Paulo">São Paulo</option>
+                            <option class="SP" value="São Paulo">Adamantina</option>
+                            <option class="SP" value="São Paulo">SÃO BERNARDO DO CAMPO</option>
+                            <option class="SP" value="São Paulo">RIBEIRÃO PRETO</option>
+                            <option class="SP" value="São Paulo">SÃO JOSÉ DOS CAMPOS</option>
+                            <option class="SE" value="Sergipe">Amparo de São Francisco</option>
+                            <option class="SE" value="Sergipe">Aquidabã</option>
+                            <option class="SE" value="Sergipe">Aracaju</option>
+                            <option class="SE" value="Sergipe">Areia Branca</option>
+                            <option class="SE" value="Sergipe">Barra dos Coqueiros</option>
+                            <option class="TO" value="Tocantins">PALMAS</option>
+                            <option class="TO" value="Tocantins">ARAGUAÍNA</option>
+                            <option class="TO" value="Tocantins">ARAGUATINS</option>
+                            <option class="TO" value="Tocantins">GURUPI</option>
+                            <option class="TO" value="Tocantins">GUARAÍ</option>
+                        </select>            
+                </div>
+        </div>
+    </div><form id="FORM_GRUPO_2_4" name="FORM_GRUPO_2_4" class="cv-form" method="post">
+        <div class="cv-div-campos rh-div-campos ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active">
+        <div class="cv-div-campo">
+        <div name="R122CEX_LABELCAMPO_2_4_2CPFCAN" id="R122CEX_LABELCAMPO_2_4_2CPFCAN" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_CPFCAN_2_4_2">
+        * CPF
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_CPFCAN" id="R122CEX_CPFCAN_2_4_2" class="cv-campo cv-input-text validate[required] cv-campo-obrigatorio" size="14" value=""  mascara="999.999.999.99" possuimascaracampo="S" pk="N"  maxlength="14"  field="CPFCAN"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_2" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Digite o n&uacute;mero do seu CPF<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        
+        </div>
+        <div class="cv-div-campo">
+        <div name="R122CEX_LABELCAMPO_2_4_3IDECAN" id="R122CEX_LABELCAMPO_2_4_3IDECAN" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_IDECAN_2_4_3">
+        * RG
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_IDECAN" id="R122CEX_IDECAN_2_4_3" class="cv-campo cv-input-text validate[required] cv-campo-obrigatorio" size="14" value=""  mascara="" possuimascaracampo="N" pk="N"  maxlength="16"  field="IDECAN"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_3" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Digite o n&uacute;mero da sua Carteira de Identidade (Sem Ponto e Tra&ccedil;os)<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        
+        <div name="R122CEX_LABELCAMPO_2_4_4EMICID" id="R122CEX_LABELCAMPO_2_4_4EMICID" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_EMICID_2_4_4">
+        * &Oacute;rg&atilde;o Emissor
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_EMICID" id="R122CEX_EMICID_2_4_4" class="cv-campo cv-input-text validate[required] cv-campo-obrigatorio" size="14" value=""  mascara="" possuimascaracampo="N" pk="N"  maxlength="20"  field="EMICID"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_4" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Informe o &Oacute;rg&atilde;o Emissar da sua Carteira de Identidade<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        <div name="R122CEX_LABELCAMPO_2_4_5ESTCID" id="R122CEX_LABELCAMPO_2_4_5ESTCID" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_ESTCID_2_4_5">
+        * Estado &Oacute;rg&atilde;o Emissor
+        </label>
+        <select id="R122CEX_ESTCID_2_4_5" autocomplete="off" name="R122CEX_ESTCID" class="cv-campo cv-select validate[required] cv-campo-obrigatorio"  field="ESTCID" pk="N" campodependente="" dependente="" data-valor-inicial=""> 
+        <option  value="">Selecione uma op&ccedil;&atilde;o</option><option  value="AC">Acre</option><option  value="AL">Alagoas</option><option  value="AP">Amapá</option><option  value="AM">Amazonas</option><option  value="BA">Bahia</option><option  value="CE">Ceará</option><option  value="DF">Distrito Federal</option><option  value="ES">Espírito Santo</option><option  value="XX">Estrangeiros</option><option  value="FN">Fernando de Noronha</option><option  value="GO">Goiás</option><option  value="MA">Maranhão</option><option  value="MS">Mato Grosso do Sul</option><option  value="MT">Mato Grosso</option><option  value="MG">Minas Gerais</option><option  value="PA">Pará</option><option  value="PB">Paraíba</option><option  value="PR">Paraná</option><option  value="PE">Pernambuco</option><option  value="PI">Piauí</option><option  value="RJ">Rio de Janeiro</option><option  value="RN">Rio Grande do Norte</option><option  value="RS">Rio Grande do Sul</option><option  value="RO">Rondônia</option><option  value="RR">Roraima</option><option  value="SC">Santa Catarina</option><option select="select" value="SP">São Paulo</option><option  value="SE">Sergipe</option><option  value="TO">Tocantins</option>
+        </select><span id="R122CEX_DICAPREENCHIMENTO_2_4_5" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Informe o Estado do &Oacute;rg&atilde;o Emissor da sua Carteira de Identidade<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        <div name="R122CEX_LABELCAMPO_2_4_6DEXCID" id="R122CEX_LABELCAMPO_2_4_6DEXCID" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_DEXCID_2_4_6">
+        * Data Expedi&ccedil;&atilde;o
+        </label>
+        <input type="text" autocomplete="off" id="R122CEX_DEXCID_2_4_6"  name="R122CEX_DEXCID" class="cv-campo cv-input-data validate[required] cv-campo-obrigatorio" size="14" value=""  mascara="DD/MM/YYYY" possuimascaracampo="N" pk="N"  maxlength="12"  field="DEXCID"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_6" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Informe a data de Expedi&ccedil;&atilde;o da sua Carteira de Identidade<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        </div>
+        <div class="cv-div-campo">
+        <div name="R122CEX_LABELCAMPO_2_4_12PISCAN" id="R122CEX_LABELCAMPO_2_4_12PISCAN" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_PISCAN_2_4_12">
+        PIS/PASEP
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_PISCAN" id="R122CEX_PISCAN_2_4_12" class="cv-campo cv-input-text " size="14" value=""  mascara="999.99999.99.9" possuimascaracampo="S" pk="N"  maxlength="14"  field="PISCAN"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_12" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        PIS/PASEP<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        
+        <div name="R122CEX_LABELCAMPO_2_4_15DCDPIS" id="R122CEX_LABELCAMPO_2_4_15DCDPIS" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_DCDPIS_2_4_15">
+        Cadastramento no PIS
+        </label>
+        <input type="text" autocomplete="off" id="R122CEX_DCDPIS_2_4_15"  name="R122CEX_DCDPIS" class="cv-campo cv-input-data " size="12" value=""  mascara="DD/MM/YYYY" possuimascaracampo="N" pk="N"  maxlength="12"  field="DCDPIS"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_15" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Cadastramento no PIS<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        </div>
+        <div class="cv-div-campo">
+        <div name="R122CEX_LABELCAMPO_2_4_14NUMCNH" id="R122CEX_LABELCAMPO_2_4_14NUMCNH" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_NUMCNH_2_4_14">
+        CNH
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_NUMCNH" id="R122CEX_NUMCNH_2_4_14" class="cv-campo cv-input-text " size="20" value=""  mascara="" possuimascaracampo="N" pk="N"  maxlength="20"  field="NUMCNH"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_14" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Numero Carteira Habilita&ccedil;&atilde;o<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        
+        <div name="R122CEX_LABELCAMPO_2_4_1CATCNH" id="R122CEX_LABELCAMPO_2_4_1CATCNH" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_CATCNH_2_4_1">
+        Categoria Habilita&ccedil;&atilde;o
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_CATCNH" id="R122CEX_CATCNH_2_4_1" class="cv-campo cv-input-text " size="14" value=""  mascara="" possuimascaracampo="N" pk="N"  maxlength="4"  field="CATCNH"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_1" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Se possuir carteira de habilita&ccedil;&atilde;o, informar qual a categoria (A,B,AB,C,etc)<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        </div>
+        <div class="cv-div-campo">
+        <div name="R122CEX_LABELCAMPO_2_4_7CODPRF" id="R122CEX_LABELCAMPO_2_4_7CODPRF" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_CODPRF_2_4_7">
+        Conselho Profissional
+        </label>
+        <select id="R122CEX_CODPRF_2_4_7" autocomplete="off" name="R122CEX_CODPRF" class="cv-campo cv-select  cv-input-combobox-lookup "  field="CODPRF" identificador="34181D733D3C151C347211383356353D30563D141413"  pk="N" campodependente="" dependente="N" data-valor-inicial=""> 
+        <option  value="">Selecione uma op&ccedil;&atilde;o</option><option  value="12">CONSELHO FEDERAL DE MEDICINA VETERINARIA</option><option  value="15">CONSELHO FEDERAL DOS TECNICOS AGRICOLAS</option><option  value="6">Conselho Regional criado na conversão - AJUSTAR</option><option  value="14">CONSELHO REGIONAL DE BIOMEDICINA</option><option  value="11">CONSELHO REGIONAL DE CONTABILIDADE</option><option  value="13">CONSELHO REGIONAL DE ECONOMIA</option><option  value="1">CONSELHO REGIONAL DE ENGENHARIA AGRONOMICA</option><option  value="2">CONSELHO REGIONAL DE ENGENHARIA E ARQUITETURA</option><option  value="3">CONSELHO REGIONAL DE MEDICINA</option><option  value="9">CONSELHO REGIONAL DE MEDICINA VETERINÁRIA</option><option  value="4">CONSELHO REGIONAL DE ODONTOLOGIA</option><option  value="16">CONSELHO REGIONAL DE PSICOLOGIA</option><option  value="8">CONSELHO REGIONAL DE QUÍMICA</option><option  value="10">FONOAUDIOLOGO</option><option  value="7">ORDEM DOS ADVOGADOS DO BRASIL</option><option  value="5">REGISTRO UNICO DO MINISTERIO DA SAUDE</option>
+        </select><span id="R122CEX_DICAPREENCHIMENTO_2_4_7" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Conselho Profissional<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        
+        <div name="R122CEX_LABELCAMPO_2_4_8REGCON" id="R122CEX_LABELCAMPO_2_4_8REGCON" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_REGCON_2_4_8">
+        Registro no Conselho
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_REGCON" id="R122CEX_REGCON_2_4_8" class="cv-campo cv-input-text " size="20" value=""  mascara="" possuimascaracampo="N" pk="N"  maxlength="20"  field="REGCON"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_8" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Registro no Conselho<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        </div>
+        <div class="cv-div-campo">
+        <div name="R122CEX_LABELCAMPO_2_4_9NUMCTP" id="R122CEX_LABELCAMPO_2_4_9NUMCTP" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_NUMCTP_2_4_9">
+        Carteira de Trabalho
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_NUMCTP" id="R122CEX_NUMCTP_2_4_9" class="cv-campo cv-input-text " size="9" value=""  mascara="999999999" possuimascaracampo="S" pk="N"  maxlength="9"  field="NUMCTP"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_9" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        Carteira de Trabalho<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        
+        <div name="R122CEX_LABELCAMPO_2_4_10SERCTP" id="R122CEX_LABELCAMPO_2_4_10SERCTP" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_SERCTP_2_4_10">
+        S&eacute;rie Cart. Trab.
+        </label>
+        <input type="text" autocomplete="off" name="R122CEX_SERCTP" id="R122CEX_SERCTP_2_4_10" class="cv-campo cv-input-text " size="5" value=""  mascara="" possuimascaracampo="N" pk="N"  maxlength="5"  field="SERCTP"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_10" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        S&eacute;rie Cart. Trab.<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        <div name="R122CEX_LABELCAMPO_2_4_11ESTCTP" id="R122CEX_LABELCAMPO_2_4_11ESTCTP" class="cv-label-campo-dica" title="">
+        <label for="R122CEX_ESTCTP_2_4_11">
+        UF Cart. Trab.
+        </label>
+        <select id="R122CEX_ESTCTP_2_4_11" autocomplete="off" name="R122CEX_ESTCTP" class="cv-campo cv-select "  field="ESTCTP" pk="N" campodependente="" dependente="" data-valor-inicial=""> 
+        <option  value="">Selecione uma op&ccedil;&atilde;o</option><option  value="AC">Acre</option><option  value="AL">Alagoas</option><option  value="AP">Amapá</option><option  value="AM">Amazonas</option><option  value="BA">Bahia</option><option  value="CE">Ceará</option><option  value="DF">Distrito Federal</option><option  value="ES">Espírito Santo</option><option  value="XX">Estrangeiros</option><option  value="FN">Fernando de Noronha</option><option  value="GO">Goiás</option><option  value="MA">Maranhão</option><option  value="MS">Mato Grosso do Sul</option><option  value="MT">Mato Grosso</option><option  value="MG">Minas Gerais</option><option  value="PA">Pará</option><option  value="PB">Paraíba</option><option  value="PR">Paraná</option><option  value="PE">Pernambuco</option><option  value="PI">Piauí</option><option  value="RJ">Rio de Janeiro</option><option  value="RN">Rio Grande do Norte</option><option  value="RS">Rio Grande do Sul</option><option  value="RO">Rondônia</option><option  value="RR">Roraima</option><option  value="SC">Santa Catarina</option><option select="select" value="SP">São Paulo</option><option  value="SE">Sergipe</option><option  value="TO">Tocantins</option>
+        </select><span id="R122CEX_DICAPREENCHIMENTO_2_4_11" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        UF Cart. Trab.<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        <div name="R122CEX_LABELCAMPO_2_4_13DIGCAR" id="R122CEX_LABELCAMPO_2_4_13DIGCAR" class="cv-label-campo-dica" title="">
+        <input type="hidden" id="R122CEX_DIGCAR_2_4_13" name="R122CEX_DIGCAR" class="cv-campo" value="" pk="N"  field="DIGCAR"/><span id="R122CEX_DICAPREENCHIMENTO_2_4_13" class="cv-hint ui-state-highlight ui-corner-all"><span class="ui-icon ui-icon-info"></span>
+        D&iacute;gito Carteira Trabalho<span class="cv-hint-pointer">&nbsp;</span></span>
+        </div>
+        <div class="col-sm-7">
+            <div class="form-group">
+                <select class="form-control" name="cargo_pretendido" required>
+                    <option disabled selected="">Selecione um cargo *</option>
+                                                                    <option value="Almoxarife">Almoxarife</option>
+
+                                                                    <option value="Eletricista Industrial">Eletricista Industrial</option>
+
+                                                                    <option value="Eletricista Automotivo">Eletricista Automotivo</option>
+
+                                                                    <option value="Caldeireiro Industrial">Caldeireiro Industrial</option>
+
+                                                                    <option value="Técnico Agrícola">Técnico Agrícola</option>
+
+                                                                    <option value="Encarregado de Produção">Encarregado de Produção</option>
+
+                                                                    <option value="Analista Ambiental">Analista Ambiental</option>
+
+                                                                    <option value="Analista de Benefícios">Analista de Benefícios</option>
+
+                                                                    <option value="Analista de Responsabilidade Social">Analista de Responsabilidade Social</option>
+
+                                                                    <option value="Analista Desenvolvimento RH">Analista Desenvolvimento RH</option>
+
+                                                                    <option value="Analista Departamento Pessoal">Analista Departamento Pessoal</option>
+
+                                                                    <option value="Analista de Laboratório">Analista de Laboratório</option>
+
+                                                                    <option value="Analista SGQ">Analista SGQ</option>
+
+                                                                    <option value="Analista Suporte TI">Analista Suporte TI</option>
+
+                                                                    <option value="Assistente Contábil">Assistente Contábil</option>
+
+                                                                    <option value="Assistente de Benefícios">Assistente de Benefícios</option>
+
+                                                                    <option value="Assistente Fiscal">Assistente Fiscal</option>
+
+                                                                    <option value="Auxiliar Mecânico">Auxiliar Mecânico</option>
+
+                                                                    <option value="Auxiliar Caldeira">Auxiliar Caldeira</option>
+
+                                                                    <option value="Auxiliar Departamento Pessoal">Auxiliar Departamento Pessoal</option>
+
+                                                                    <option value="Balanceiro">Balanceiro</option>
+
+                                                                    <option value="Borracheiro">Borracheiro</option>
+
+                                                                    <option value="Caldeireiro de Manutenção de Implementos">Caldeireiro de Manutenção de Implementos</option>
+
+                                                                    <option value="Coordenador Departamento Pessoal">Coordenador Departamento Pessoal</option>
+
+                                                                    <option value="Cozinhador">Cozinhador</option>
+
+                                                                    <option value="Cozinheira">Cozinheira</option>
+
+                                                                    <option value="Destilador">Destilador</option>
+
+                                                                    <option value="Enfermagem do Trabalho">Enfermagem do Trabalho</option>
+
+                                                                    <option value="Engenheiro Agronomo">Engenheiro Agronomo</option>
+
+                                                                    <option value="Engenheiro Civil">Engenheiro Civil</option>
+
+                                                                    <option value="Engenheiro Segurança do Trabalho">Engenheiro Segurança do Trabalho</option>
+
+                                                                    <option value="Faxineira">Faxineira</option>
+
+                                                                    <option value="Frentista">Frentista</option>
+
+                                                                    <option value="Guincheiro">Guincheiro</option>
+
+                                                                    <option value="Instrumentista">Instrumentista</option>
+
+                                                                    <option value="Mecânico Industrial">Mecânico Industrial</option>
+
+                                                                    <option value="Mecânico de Máquinas Agrícolas">Mecânico de Máquinas Agrícolas</option>
+
+                                                                    <option value="Mecânico Moenda">Mecânico Moenda</option>
+
+                                                                    <option value="Motorista">Motorista</option>
+
+                                                                    <option value="Operador de Caldeira">Operador de Caldeira</option>
+
+                                                                    <option value="Operador de Empilhadeira">Operador de Empilhadeira</option>
+
+                                                                    <option value="Operador de Turbina a Vapor">Operador de Turbina a Vapor</option>
+
+                                                                    <option value="Pedreiro">Pedreiro</option>
+
+                                                                    <option value="Piloto Agrícola">Piloto Agrícola</option>
+
+                                                                    <option value="Recepcionista">Recepcionista</option>
+
+                                                                    <option value="Serviços de Portaria">Serviços de Portaria</option>
+
+                                                                    <option value="Soldador Caldeireiro">Soldador Caldeireiro</option>
+
+                                                                    <option value="Soldador de Moenda">Soldador de Moenda</option>
+
+                                                                    <option value="Técnico Enfermagem do Trabalho">Técnico Enfermagem do Trabalho</option>
+
+                                                                    <option value="Torneiro Mecânico Industrial">Torneiro Mecânico Industrial</option>
+
+                                                                    <option value="Tratorista">Tratorista</option>
+
+                                                                    <option value="Operador de Colhedora">Operador de Colhedora</option>
+
+                                                                    <option value="Contador">Contador</option>
+
+                                                                    <option value="Operador Pá Carregadeira">Operador Pá Carregadeira</option>
+
+                                                                    <option value="Analista Fiscal">Analista Fiscal</option>
+
+                                                                    <option value="Analista Contábil">Analista Contábil</option>
+
+                                                                    <option value="Supervisor de Pecuária de Corte">Supervisor de Pecuária de Corte</option>
+
+                                                                    <option value="Analista de Recursos Humanos">Analista de Recursos Humanos</option>
+
+                                                                    <option value="Mecânico de Colhedora I">Mecânico de Colhedora I</option>
+
+                                                                    <option value="Supervisor">Supervisor</option>
+
+                                                                    <option value="Aux. Administrativo - Almoxarifado">Aux. Administrativo - Almoxarifado</option>
+
+                                                                    <option value="Soldador Industrial">Soldador Industrial</option>
+
+                                                                    <option value="Soldador Agrícola">Soldador Agrícola</option>
+
+                                                                    <option value="Jardineiro">Jardineiro</option>
+
+                                                                    <option value="Auxiliar Geral">Auxiliar Geral</option>
+
+                                                                    <option value="Operador de Gerador de Energia">Operador de Gerador de Energia</option>
+
+                                                                    <option value="Controlador de Operações Agrícolas - C.O.A">Controlador de Operações Agrícolas - C.O.A</option>
+
+                                                                    <option value="Líder">Líder</option>
+
+                                                                    <option value="Enfermeiro (a)">Enfermeiro (a)</option>
+
+                                                                    <option value="Operador de Máquinas">Operador de Máquinas</option>
+
+                                                                    <option value="Auxiliar Agrícola">Auxiliar Agrícola</option>
+
+                                                                    <option value="Operador de Fábrica de Açúcar">Operador de Fábrica de Açúcar</option>
+
+                                                                    <option value="Líder de Produção Agrícola">Líder de Produção Agrícola</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-5">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control mask-salario" placeholder="Pretensão Salarial*" name="salario" required>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12">
+                                                        <h4 style="padding-top: 25px;">Formação Acadêmica</h4>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Escolaridade*" name="escolaridade" required>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <textarea cols="40" rows="10" class="textarea-height textarea form-control" placeholder="Informe aqui, se houver, faculdades, pós-graduação, ano de conclusão etc." name="formacao_academica_outros"></textarea>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12 mb-2">
+                                                        <h4 style="padding-top: 25px;clear: both;">Línguas Estrangeiras</h4>
+                                                    </div>
+                    
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Fluentes" name="idioma_fluente">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Básicos" name="idioma_basico">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12 mb-2">
+                                                        <h4 style="padding-top: 25px;clear: both;">Cursos Profissionalizantes</h4>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <textarea cols="40" rows="10" class="textarea-height textarea form-control" placeholder="Informe aqui, se houver, cursos técnicos profissionalizantes." name="curso_profissionalizante"></textarea>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12">
+                                                        <h4 style="padding-top: 25px;clear: both;margin-bottom: 0px;">Experiência
+                                                            Profissional</h4>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12 mb-1">
+                                                        <h5 style="padding-top: 19px;clear: both;">Empresa 1</h5>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Nome da empresa" name="empresa_nome_1">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Função ou cargo" name="empresa_cargo_1">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Período (Ex. 10/2014 até atualmente)" name="empresa_periodo_1">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12 mb-1">
+                                                        <h5 style="padding-top: 19px;clear: both;">Empresa 2</h5>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Nome da empresa" name="empresa_nome_2">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Função ou cargo" name="empresa_cargo_2">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Período (Ex. 02/2010 até 09/2014)" name="empresa_periodo_2">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12 mb-1">
+                                                        <h5 style="padding-top: 19px;clear: both;">Empresa 3</h5>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Nome da empresa" name="empresa_nome_3">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Função ou cargo" name="empresa_cargo_3">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Período" name="empresa_periodo_3">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12 mb-2">
+                                                        <h4 style="padding-top: 25px;clear: both;">Características</h4>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <textarea cols="40" rows="10" class="textarea form-control" placeholder="Citar sua maior especialidade*" name="caracteristicas" required></textarea>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12 mb-2">
+                                                        <h4 style="padding-top: 25px;clear: both;">Anexar Currículo em PDF</h4>
+                                                    </div>
+                    
+                                                    <div class="col-sm-12 mb-0">
+                                                        <div class="form-group mb-0">
+                                                            <input class="file" placeholder="Anexar Currículo" name="cv" type="file" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-4">
+                                                        <div class="col-sm mb-3">
+                                                            <div class="form-check d-flex align-items-baseline">
+                                                                
+                                                                <input type="checkbox" required name="termos_de_consentimento" class="m-0" id="check-terms-and-consents" value="1">
+                    
+                                                                <label class="form-check-label pl-1" for="check-terms-and-consents">
+                                                                    Tenho ciência e concordo que meus dados aqui informados poderão ser utilizados pela Empresa de acordo com os termos apresentados no <a target="_blank" href="politica-de-privacidade">Política de Privacidade.</a>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group mt-4 col-md-12 row">
+                                                        <div class="col-md-6 mt-20"><div class="g-recaptcha" data-sitekey="6LerYEsgAAAAAC6KrWruTDX7QtHOL2iDvQc1BRGx"></div></div>
+                                                        <div class="col-md-6 mt-20 text-right">
+                                                            <button class="theme_btn btn btn_enviar" type="submit">Enviar</button>
+                                                        </div>
+                                                        <div class="mensagem_retorno mt-2 col-md-12"></div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                </div>
+        </div>
+    </form>
+</body>
+</html>
